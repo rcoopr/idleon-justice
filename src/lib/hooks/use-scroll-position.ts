@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 
-export function useToTop() {
-  const [showToTop, setShowToTop] = useState(false);
+export function useScrollPosition() {
+  const [showScrollPosition, setShowScrollPosition] = useState(0);
 
   useEffect(() => {
     const listener = () => {
-      setShowToTop(window.scrollY > 120);
+      setShowScrollPosition(window.scrollY);
     };
 
     window.addEventListener('scroll', listener);
@@ -16,5 +16,5 @@ export function useToTop() {
     return () => window.removeEventListener('scroll', listener);
   }, []);
 
-  return showToTop;
+  return showScrollPosition;
 }

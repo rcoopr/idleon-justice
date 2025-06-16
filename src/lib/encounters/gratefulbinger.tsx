@@ -31,7 +31,7 @@ export const gratefulbinger: Encounter = {
     <div className="grid grid-cols-1 sm:grid-cols-[min-content_1fr] grid-rows-[auto_auto] gap-y-1 items-center">
       <GratefulbingerAppearanceChance className="md:row-span-2" />
       <span>
-        Chance to arrive every <AnchorLink to={slugs.harbinger}>Harbinger</AnchorLink> case
+        Chance to replace <AnchorLink to={slugs.harbinger}>Harbinger</AnchorLink>
       </span>
       <GratefulbingerAppearanceExamples className="sm:col-span-2 md:col-start-2" />
     </div>

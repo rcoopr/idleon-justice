@@ -146,6 +146,10 @@
     color: #ce9424;
   }
 
+  .engraved {
+    filter: drop-shadow(0 1px 0 #c3b5fd9d);
+  }
+
   .shine-cosmic-light {
     background-image: var(--shine-cosmic-light);
   }
@@ -200,6 +204,17 @@
 
   .rupie {
     animation: rupie-cycle 6s infinite linear;
+  }
+
+  .no-spinner::-webkit-outer-spin-button,
+  .no-spinner::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .no-spinner {
+    -moz-appearance: textfield;
+    appearance: textfield;
   }
 }
 

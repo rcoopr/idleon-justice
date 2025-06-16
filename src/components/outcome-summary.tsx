@@ -1,47 +1,45 @@
 import type { Outcome } from '../lib/encounters/types';
+import { useCaseMult } from '../lib/hooks/use-case-mult';
 import { MentalHealth, Coin, Pop, Dismissal, Chest } from './ui/icons/resource';
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
 
 export function OutcomeSummary({ outcome }: { outcome: Outcome }) {
+  const { base } = useCaseMult();
+
   return (
-    <div className="grid grid-cols-[auto_auto_max-content] gap-x-0.5 items-center justify-items-center">
+    <div className="grid grid-cols-[auto_max-content] gap-x-0.5 items-center justify-items-center">
       {outcome.mentalHealth ? (
         <>
           <NumberLabel value={outcome.mentalHealth} />
-          <div className="-ml-0.25 -mt-0.25">⨯</div>
           <MentalHealth />
         </>
       ) : null}
       {outcome.coin ? (
         <>
-          <NumberLabel value={outcome.coin} />
-          <div className="-ml-0.25 -mt-0.25">⨯</div>
+          <NumberLabel value={base * outcome.coin} />
           <Coin />
         </>
       ) : null}
       {outcome.popularity ? (
         <>
-          <NumberLabel value={outcome.popularity} />
-          <div className="-ml-0.25 -mt-0.25">⨯</div>
+          <NumberLabel value={base * outcome.popularity} />
           <Pop />
         </>
       ) : null}
       {outcome.dismissal ? (
         <>
           <NumberLabel value={outcome.dismissal} />
-          <div className="-ml-0.25 -mt-0.25">⨯</div>
           <Dismissal />
         </>
       ) : null}
       {outcome.chest ? (
         <>
           <NumberLabel value={outcome.chest} />
-          <div className="-ml-0.25 -mt-0.25">⨯</div>
           <Chest />
         </>
       ) : null}
       {outcome.special && (
-        <div className="col-span-3 pt-0.5">
+        <div className="col-span-2 pt-0.5">
           <Tooltip>
             <TooltipTrigger asChild>
               <img

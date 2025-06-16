@@ -78,13 +78,8 @@ body {
 
 button {
   border-radius: 8px;
-  font-weight: 500;
   font-family: inherit;
   cursor: pointer;
-  transition: border-color 0.3s;
-}
-button:hover {
-  border-color: var(--color-cosmic-500);
 }
 
 a {
