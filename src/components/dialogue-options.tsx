@@ -41,9 +41,10 @@ export function DialogueOptions() {
               <Approve />
               <Reject />
             </div>
-            {interactions.map((interaction) => (
+            {interactions.map((interaction, index) => (
               <EncounterInteraction
                 key={interaction.id}
+                index={index}
                 interaction={interaction}
                 encounter={encounter}
               />
@@ -58,18 +59,21 @@ export function DialogueOptions() {
 function EncounterInteraction({
   interaction,
   encounter,
+  index,
 }: {
   interaction: Interaction;
   encounter: Encounter;
+  index: number;
 }) {
   return (
     <li
       id={`${encounter.slug}-${interaction.id}`}
       className={twJoin(
-        'grid grid-cols-[auto_79px_79px] items-center overflow-hidden border rounded-md scroll-m-4',
+        'grid grid-cols-[auto_79px_79px] items-center overflow-hidden border rounded-md',
         'bg-cosmic-200/3 border-cosmic-200/10 backdrop-blur-lg transition-colors duration-300',
         'target:bg-cosmic-500/30 target:border-cosmic-400/50',
         '[&:target~.related]:bg-cosmic-500/30 [&:target~.related]:border-cosmic-400/50',
+        index === 0 ? 'scroll-m-14' : 'scroll-m-4',
         interaction.related && 'related'
       )}
     >

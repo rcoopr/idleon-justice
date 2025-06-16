@@ -5,7 +5,7 @@ export function useToTop() {
 
   useEffect(() => {
     const listener = () => {
-      setShowToTop(window.scrollY > 200);
+      setShowToTop(window.scrollY > 120);
     };
 
     window.addEventListener('scroll', listener);

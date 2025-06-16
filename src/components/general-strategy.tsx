@@ -34,7 +34,7 @@ export function GeneralStrategy() {
           expand ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
         )}
       >
-        <ul className="px-4 py-2 list-disc space-y-1 [&>li]:ml-4 overflow-hidden border-t border-amber-200/20">
+        <ul className="px-4 list-disc space-y-1 [&>li]:ml-4 overflow-hidden border-t -mb-px border-amber-200/20 [&>li]:first:mt-2 [&>li]:last:mb-2.25">
           <li>
             Hoard <Coin /> / <Pop /> until later cases, don't buy <Chest /> midgame{' '}
             <span className="text-sm">(case 20 ~ 70)</span>
@@ -67,7 +67,7 @@ export function GeneralStrategy() {
             important for <MentalHealth />
           </li>
           <li>
-            Accept{' '}
+            Approve{' '}
             <AnchorLink to={`${slugs.fizarreDrink}-1`}>
               Fizarre's <Dismissal />
             </AnchorLink>{' '}
@@ -82,3 +82,7 @@ export function GeneralStrategy() {
     </div>
   );
 }
+/**
+ * add case counter + next button, add distinct background for that section
+ * replace all +/-/x with real values if !!(case counter)
+ */
