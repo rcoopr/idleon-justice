@@ -1,0 +1,122 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  scroll-behavior: smooth;
+}
+
+.background::before {
+  position: absolute;
+  content: '';
+  inset: 0;
+  background: radial-gradient(circle, rgba(2, 0, 36, 0) 0, var(--color-nebula-900) 100%);
+  z-index: 2;
+}
+
+.content::before {
+  background-image: radial-gradient(at 27% 37%, #3a8bfd 0, transparent 50%),
+    radial-gradient(at 97% 21%, #9772fe 0, transparent 50%),
+    radial-gradient(at 52% 99%, #fd3a4e 0, transparent 50%),
+    radial-gradient(at 10% 29%, #5afc7d 0, transparent 50%),
+    radial-gradient(at 97% 96%, #e4c795 0, transparent 50%),
+    radial-gradient(at 33% 50%, #8ca8e8 0, transparent 50%),
+    radial-gradient(at 79% 53%, #eea5ba 0, transparent 50%);
+  position: absolute;
+  content: '';
+  z-index: 2;
+  width: 100%;
+  height: 600px;
+  filter: blur(100px) saturate(150%);
+  z-index: -1;
+  top: 80px;
+  opacity: 0.2;
+  transform: translateZ(0);
+  animation: hue-cycle 20s infinite linear;
+}
+
+.shine::before {
+  position: absolute;
+  content: '';
+  background: linear-gradient(90deg, transparent, var(--color-cosmic-300) 30%, transparent 90%);
+  opacity: 0.7;
+  filter: saturate(0);
+  height: 1px;
+  top: -1px;
+  width: calc(100% - 24px);
+  left: 12px;
+  z-index: -1;
+  transition: filter 0.3s;
+}
+
+.shine-cosmic::before {
+  background: linear-gradient(90deg, transparent, var(--color-cosmic-100) 30%, transparent 90%);
+}
+
+.shine:hover::before {
+  filter: saturate(1);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button {
+  border-radius: 8px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+button:hover {
+  border-color: var(--color-cosmic-500);
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.special img {
+  translate: 0 -2px;
+}
+
+.special img[data-resource='chest'] {
+  translate: 0 -1px;
+}
+
+@keyframes hue-cycle {
+  0% {
+    filter: hue-rotate(0deg) blur(100px) saturate(150%);
+  }
+  100% {
+    filter: hue-rotate(360deg) blur(100px) saturate(150%);
+  }
+  /* 0%,
+  100% {
+    filter: hue-rotate(0deg) blur(100px) saturate(150%);
+  }
+  25% {
+    filter: hue-rotate(60deg) blur(100px) saturate(150%);
+  }
+  75% {
+    filter: hue-rotate(-60deg) blur(100px) saturate(150%);
+  } */
+}
