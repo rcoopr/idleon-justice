@@ -13,7 +13,10 @@ export function Attribution() {
       )}
     >
       <div className="relative transition-colors duration-300 hover:text-cosmic-300">
-        <a href="https://github.com/rcoopr" className="pr-10 no-underline! not-italic!">
+        <a
+          href="https://github.com/rcoopr/idleon-justice"
+          className="pr-10 no-underline! not-italic!"
+        >
           by rcoopr
           <Github width={32} height={32} className="absolute right-0 top-0.75" />
         </a>
