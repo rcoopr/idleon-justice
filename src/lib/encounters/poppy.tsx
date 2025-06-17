@@ -30,10 +30,10 @@ export const poppy: Encounter = {
       text: "Um, hey there. I was thinking maybe you had X coins I could borrow? I'll get Scripticus to pay you back next time you see him, and I'll even add a little extra as a way to say thanks",
       approve: {
         coin: -4,
-        popularity: 5,
+        popularity: { flat: 5 },
       },
       reject: {
-        popularity: -3,
+        popularity: { flat: -3 },
       },
       advice: {
         approve: true,
@@ -53,7 +53,7 @@ export const poppy: Encounter = {
         dismissal: 1,
       },
       reject: {
-        popularity: -2,
+        popularity: { flat: -2 },
       },
       advice: {
         approve: true,
@@ -82,7 +82,7 @@ export const poppy: Encounter = {
         mentalHealth: -1,
       },
       reject: {
-        popularity: -2,
+        popularity: { flat: -2 },
       },
       advice: {
         approve: true,
@@ -101,7 +101,7 @@ export const poppy: Encounter = {
       text: "Hey there judge. I just wanted to tell you what a fantastic job you've done, and how much we appreciate the effort you put into your decisions. It's not much, but I collected X coins from everyone who wanted to express their thanks",
       approve: {
         coin: 3,
-        popularity: 2,
+        popularity: { flat: 2 },
       },
       reject: {
         popularity: -40,

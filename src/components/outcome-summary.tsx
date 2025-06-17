@@ -1,5 +1,6 @@
 import type { Outcome } from '../lib/encounters/types';
 import { useCaseMult } from '../lib/hooks/use-case-mult';
+import { scaled } from '../lib/scaled-value';
 import { MentalHealth, Coin, Pop, Dismissal, Chest } from './ui/icons/resource';
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
 
@@ -16,13 +17,13 @@ export function OutcomeSummary({ outcome }: { outcome: Outcome }) {
       ) : null}
       {outcome.coin ? (
         <>
-          <NumberLabel value={base * outcome.coin} />
+          <NumberLabel value={scaled(outcome.coin, base)} />
           <Coin />
         </>
       ) : null}
       {outcome.popularity ? (
         <>
-          <NumberLabel value={base * outcome.popularity} />
+          <NumberLabel value={scaled(outcome.popularity, base)} />
           <Pop />
         </>
       ) : null}

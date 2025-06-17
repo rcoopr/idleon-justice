@@ -14,11 +14,11 @@ export const headHoncho: Encounter = {
         chest: -1,
         special: (
           <span>
-            +2 <Coin /> per day for 10 days (20 total)
+            2 <Coin /> per day for 10 days (20 total)
           </span>
         ),
       },
-      reject: { popularity: 1 },
+      reject: { popularity: { flat: 1 } },
       advice: {
         approve: false,
         always: false,
@@ -31,11 +31,11 @@ export const headHoncho: Encounter = {
       approve: {
         special: (
           <span>
-            -All <Pop />, +2 <Coin /> per <Pop /> lost
+            -All <Pop />, 2 <Coin /> per <Pop /> lost
           </span>
         ),
       },
-      reject: { popularity: 1 },
+      reject: { popularity: { flat: 1 } },
       advice: {
         approve: false,
         always: true,
@@ -52,7 +52,7 @@ export const headHoncho: Encounter = {
           </span>
         ),
       },
-      reject: { popularity: 1 },
+      reject: { popularity: { flat: 1 } },
       advice: {
         approve: false,
         always: false,
@@ -82,15 +82,15 @@ export const headHoncho: Encounter = {
       id: 5,
       text: 'Greetings, I have a fantastic opportunity for you! For just X coins, I will invest in a crypto coin and will share the profits! 1 coin returned every day for 15 days!',
       approve: {
-        coin: -6,
-        popularity: -1,
+        coin: { flat: -6 },
+        popularity: { flat: -1 },
         special: (
           <span>
-            +1 <Coin /> each day for 15 days
+            1 <Coin /> each day for 15 days
           </span>
         ),
       },
-      reject: { popularity: 1 },
+      reject: { popularity: { flat: 1 } },
       advice: {
         approve: true,
         always: false,
@@ -101,14 +101,14 @@ export const headHoncho: Encounter = {
       text: 'Your honor, I seek an investment of X coins in order to grow my Student Loans company and acquire new victims. I promise your money will double by next time you see me.',
       approve: {
         coin: -3,
-        popularity: -1,
+        popularity: { flat: -1 },
         special: (
           <span>
             <Coin /> doubled on next Head Honcho case
           </span>
         ),
       },
-      reject: { popularity: 2 },
+      reject: { popularity: { flat: 2 } },
       advice: {
         approve: true,
         always: false,
@@ -118,7 +118,7 @@ export const headHoncho: Encounter = {
       id: 7,
       text: "You aren't looking too well my friend... perhaps you would like some life insurance? I'll loan you some mental health, but the next time I see you, I'm taking it all back... PLUS interest...",
       approve: { mentalHealth: 4 },
-      reject: { popularity: 2 },
+      reject: { popularity: { flat: 2 } },
       notes: 'Sets all currencies except dismisals to 1 on next interaction',
       advice: {
         approve: false,
@@ -134,7 +134,7 @@ export const headHoncho: Encounter = {
       id: 8,
       text: "Greetings, are you interested in making some big money? I have a client, some guy in a grim reaper costume, who is ready to give you X coins! All you have to do is sign this contract saying you'll NEVER dismiss him.",
       approve: { coin: 20 },
-      reject: { popularity: 1 },
+      reject: { popularity: { flat: 1 } },
       advice: {
         approve: false,
         always: true,

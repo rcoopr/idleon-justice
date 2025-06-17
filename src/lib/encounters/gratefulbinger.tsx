@@ -15,7 +15,7 @@ export const gratefulbinger: Encounter = {
       id: 1,
       text: "I've been watching you closely, and I wanted to thank you for everything you've done for the community with a gift of 5 coins, and 1 Retirement Chest!",
       approve: {
-        coin: 5,
+        coin: { flat: 5 },
         chest: 1,
       },
       reject: {

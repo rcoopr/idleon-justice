@@ -78,7 +78,7 @@ export const harbinger: Encounter = {
     {
       id: 7,
       text: "Uh oh, looks like your bills finally got the better of you! I guess managing money ain't so easy after all. Look, if you give me X popularity, I'll save you the embarassment of an empty coffer.",
-      approve: { popularity: -1, coin: 1 },
+      approve: { popularity: -1, coin: { flat: 1 } },
       reject: { mentalHealth: -1 },
       notes: (
         <span>

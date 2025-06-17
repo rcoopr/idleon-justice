@@ -46,7 +46,7 @@ export const scripticus: Encounter = {
         ),
       },
       reject: {
-        popularity: -1,
+        popularity: { flat: -1 },
       },
       notes: (
         <span>

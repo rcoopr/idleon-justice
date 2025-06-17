@@ -19,7 +19,7 @@ export const ghost: Encounter = {
         ),
       },
       reject: {
-        popularity: 1,
+        popularity: { flat: 1 },
       },
       advice: {
         approve: true,

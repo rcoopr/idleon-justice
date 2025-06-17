@@ -1,5 +1,6 @@
 import type { JSX } from 'react';
 import type { slugs } from './slugs';
+import type { ScalableValue } from '../scaled-value';
 
 export type Encounter = {
   slug: (typeof slugs)[keyof typeof slugs];
@@ -9,8 +10,8 @@ export type Encounter = {
   notes?: string | JSX.Element;
 };
 export type Outcome = {
-  coin?: number;
-  popularity?: number;
+  coin?: ScalableValue;
+  popularity?: ScalableValue;
   mentalHealth?: number;
   dismissal?: number;
   chest?: number;

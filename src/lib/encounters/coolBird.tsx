@@ -30,7 +30,7 @@ export const coolBird: Encounter = {
       approve: {
         special: (
           <span>
-            +2 <MentalHealth /> <Or /> -1 <MentalHealth />
+            2 <MentalHealth /> <Or /> -1 <MentalHealth />
           </span>
         ),
       },

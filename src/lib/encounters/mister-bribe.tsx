@@ -11,8 +11,8 @@ export const misterBribe: Encounter = {
     {
       id: 1,
       text: "Aight, check it. I ain't done no dirty tricks this time, I got a shiny clean coin right 'ere, just for you! Seriously, take it!",
-      approve: { coin: 1 },
-      reject: { popularity: -1 },
+      approve: { coin: { flat: 1 } },
+      reject: { popularity: { flat: -1 } },
       advice: {
         approve: true,
         always: true,
@@ -57,7 +57,7 @@ export const misterBribe: Encounter = {
       id: 4,
       text: "Hey friendo. Is me again, what's good? I got a huge score, and wanted to share some of it! Here, have X coins, but your mental health will take a hit when you hear the news tonight...",
       approve: { coin: 7, mentalHealth: -1 },
-      reject: { popularity: 1 },
+      reject: { popularity: { flat: 1 } },
       advice: {
         approve: false,
         always: true,
@@ -69,9 +69,13 @@ export const misterBribe: Encounter = {
       approve: { coin: 3, popularity: -1 },
       reject: { popularity: 1 },
       advice: {
-        approve: false,
-        always: true,
-        notes: 'Both choices are good here',
+        approve: true,
+        always: false,
+        notes: (
+          <span>
+            Only reject if you don't need <Coin /> at all
+          </span>
+        ),
       },
     },
     {

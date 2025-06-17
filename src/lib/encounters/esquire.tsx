@@ -13,7 +13,7 @@ export const esquire: Encounter = {
       id: 1,
       text: 'Hark, I have returned bearing the gift of a Retirement Chest, albeit only if you can solve my riddle. Tell me magistrate... as I am royalty, what action to me speaks loudest, yet not at all?',
       approve: {
-        popularity: -1,
+        popularity: { flat: -1 },
         special: (
           <span>
             <Dismissal /> to get a <Chest />
@@ -21,7 +21,7 @@ export const esquire: Encounter = {
         ),
       },
       reject: {
-        popularity: -1,
+        popularity: { flat: -1 },
       },
       advice: {
         approve: false,
@@ -62,7 +62,7 @@ export const esquire: Encounter = {
       approve: {
         special: (
           <span className="inline-block text-center">
-            +4 <Coin /> per approval until <Dismissal />
+            4 <Coin /> per approval until <Dismissal />
             <br /> <Pop /> set to 0 after 2
             <img alt="Reject" src="/icons/Justice_Act1.png" className="h-3.5 inline -mb-0.5" />
           </span>
@@ -71,7 +71,7 @@ export const esquire: Encounter = {
       reject: {},
       notes: (
         <span>
-          Sets <Pop /> to 0 after two <Reject /> (can still gain new <Pop />) and cancels the +4{' '}
+          Sets <Pop /> to 0 after two <Reject /> (can still gain new <Pop />) and cancels the 4{' '}
           <Coin /> per approval
         </span>
       ),
@@ -89,7 +89,7 @@ export const esquire: Encounter = {
       id: 4,
       text: 'Mmmm yeeees, charmed your honor. Perchance could I get a loan of all your money? I will give it all back next you see me, and you would make me one very happy bean oh hohoho yeeees!',
       approve: {
-        popularity: 12,
+        popularity: { flat: 12 },
         special: (
           <span>
             Lose all <Coin />, get them back on next{' '}

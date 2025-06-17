@@ -1,3 +1,4 @@
+import { ScaledValue } from '../../components/scaled-value';
 import { Chest, Coin, Dismissal, MentalHealth, Pop } from '../../components/ui/icons/resource';
 import { Or } from '../../components/ui/or';
 import { slugs } from './slugs';
@@ -15,8 +16,8 @@ export const grumblo: Encounter = {
         coin: -1,
         special: (
           <span>
-            2 <Pop /> <Or /> 3x <Pop /> <Or /> 1 <MentalHealth /> <Or /> 1 <Chest /> <Or /> 1{' '}
-            <Dismissal />
+            2 <Pop /> <Or /> <ScaledValue value={3} /> <Pop /> <Or /> 1 <MentalHealth /> <Or /> 1{' '}
+            <Chest /> <Or /> 1 <Dismissal />
           </span>
         ),
       },
@@ -33,7 +34,7 @@ export const grumblo: Encounter = {
         coin: -3,
         special: (
           <span>
-            4x <Pop /> <Or /> 2 <Chest />
+            <ScaledValue value={4} /> <Pop /> <Or /> 2 <Chest />
           </span>
         ),
       },

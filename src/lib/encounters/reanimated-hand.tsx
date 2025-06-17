@@ -1,3 +1,4 @@
+import { AnchorLink } from '../../components/ui/anchor-link';
 import { Chest, Coin, Pop } from '../../components/ui/icons/resource';
 import { slugs } from './slugs';
 import type { Encounter } from './types';
@@ -50,9 +51,16 @@ export const reanimatedHand: Encounter = {
     {
       id: 4,
       text: "You are SO dumb, forcing me here whenever I break your dumb rules. Can you just make me above the law? I'll share part what I steal every time you see me, I'll even share the blame!",
-      approve: { popularity: -1 },
-      reject: { popularity: 2 },
-      notes: '+4 Court Coins, -2 Popularity every time you see the Reanimated Hand',
+      approve: {
+        popularity: { flat: -1 },
+        special: (
+          <span>
+            4 <Coin /> and -2 <Pop /> every{' '}
+            <AnchorLink to={slugs.reanimatedHand}>Reanimated Hand</AnchorLink> case
+          </span>
+        ),
+      },
+      reject: { popularity: { flat: 2 } },
       advice: {
         approve: true,
         always: false,

@@ -14,7 +14,7 @@ export const billionaireChest: Encounter = {
       approve: {
         special: (
           <span>
-            2-3 <Chest /> <Or /> +2 <Dismissal /> <Or /> +1 <Coin />
+            2-3 <Chest /> <Or /> 2 <Dismissal /> <Or /> 1 <Coin />
           </span>
         ),
       },

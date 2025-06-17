@@ -152,7 +152,7 @@ export const timmy: Encounter = {
       id: 11,
       text: "🍦 'Musical Theme Plays' Nonono I cant eat more I'm full.. Thank u so so sooooo much for those ice cweams, they were yummy for real! Can I give u a hug pwease ur da best!",
       approve: { mentalHealth: 4 },
-      reject: { popularity: -999 },
+      reject: { popularity: { flat: -999 } },
       related: true,
       advice: {
         approve: true,

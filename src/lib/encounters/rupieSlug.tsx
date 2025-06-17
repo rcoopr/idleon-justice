@@ -77,7 +77,7 @@ export const rupieSlug: Encounter = {
       id: 5,
       text: "Henlo!!! You're really awesome!! I wanna be just like you!",
       approve: {
-        popularity: 2,
+        popularity: { flat: 2 },
       },
       reject: {
         popularity: -5,
