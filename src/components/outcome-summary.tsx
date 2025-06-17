@@ -1,41 +1,43 @@
 import type { Outcome } from '../lib/encounters/types';
 import { useCaseMult } from '../lib/hooks/use-case-mult';
+import { useCaseStore } from '../lib/hooks/use-case-store';
 import { scaled } from '../lib/scaled-value';
 import { MentalHealth, Coin, Pop, Dismissal, Chest } from './ui/icons/resource';
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
 
 export function OutcomeSummary({ outcome }: { outcome: Outcome }) {
+  const { caseNumber } = useCaseStore();
   const { base } = useCaseMult();
 
   return (
     <div className="grid grid-cols-[auto_max-content] gap-x-0.5 items-center justify-items-center">
       {outcome.mentalHealth ? (
         <>
-          <NumberLabel value={outcome.mentalHealth} />
+          <ValueLabel value={outcome.mentalHealth} />
           <MentalHealth />
         </>
       ) : null}
       {outcome.coin ? (
         <>
-          <NumberLabel value={scaled(outcome.coin, base)} />
+          <ValueLabel value={scaled(outcome.coin, base, caseNumber === null)} />
           <Coin />
         </>
       ) : null}
       {outcome.popularity ? (
         <>
-          <NumberLabel value={scaled(outcome.popularity, base)} />
+          <ValueLabel value={scaled(outcome.popularity, base, caseNumber === null)} />
           <Pop />
         </>
       ) : null}
       {outcome.dismissal ? (
         <>
-          <NumberLabel value={outcome.dismissal} />
+          <ValueLabel value={outcome.dismissal} />
           <Dismissal />
         </>
       ) : null}
       {outcome.chest ? (
         <>
-          <NumberLabel value={outcome.chest} />
+          <ValueLabel value={outcome.chest} />
           <Chest />
         </>
       ) : null}
@@ -61,6 +63,6 @@ export function OutcomeSummary({ outcome }: { outcome: Outcome }) {
   );
 }
 
-function NumberLabel({ value }: { value: number }) {
+function ValueLabel({ value }: { value: string | number }) {
   return <div className="pb-1 text-right justify-self-end font-semibold">{value}</div>;
 }
