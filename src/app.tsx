@@ -18,6 +18,7 @@ export function App() {
         <Encounters />
         <GeneralStrategy />
         <DialogueOptions />
+        <div className="h-screen" aria-hidden />
       </div>
       <ToTop />
     </main>

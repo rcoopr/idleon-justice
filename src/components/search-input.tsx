@@ -14,16 +14,17 @@ export function SearchInput() {
 
   useLayoutEffect(() => {
     if (search) {
-      const firstEncounter = document.querySelector<HTMLUListElement>('main > div > ul');
-      if (!firstEncounter) return;
-      window.scrollTo({ top: firstEncounter.offsetTop - 86, behavior: 'smooth' });
+      scrollToResults();
     }
   }, [search]);
 
   const scrollToResults = () => {
-    const firstEncounter = document.querySelector<HTMLUListElement>('main > div > ul');
-    if (!firstEncounter) return;
-    window.scrollTo({ top: firstEncounter.offsetTop - 86, behavior: 'smooth' });
+    const firstEncounter = document.querySelector<HTMLUListElement>('[data-search-result]');
+    if (!firstEncounter) {
+      window.scrollTo({ top: 184, behavior: 'smooth' });
+      return;
+    }
+    firstEncounter.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   useEffect(() => {
@@ -84,7 +85,7 @@ export function SearchInput() {
 
         {search && (
           <button
-            className="absolute right-0 top-3 m-2.25 opacity-70 text-cosmic-300"
+            className="absolute right-6 top-3 m-2.25 opacity-70 text-cosmic-300"
             onClick={() => {
               clearSearch();
               clearSelectedEncounter();

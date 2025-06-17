@@ -22,7 +22,7 @@ export function DialogueOptions() {
           : encounter.interactions;
 
         return (
-          <ul key={encounter.slug} className="space-y-3 w-full">
+          <ul key={encounter.slug} data-search-result className="space-y-3 w-full scroll-mt-30">
             <div className="grid grid-cols-[auto_79px_79px] items-end">
               <div className="flex items-end px-2 gap-4">
                 <img src={encounter.icon} alt={encounter.name} />
@@ -52,6 +52,11 @@ export function DialogueOptions() {
           </ul>
         );
       })}
+      {filteredEncountersBySelectedEncounter.length === 0 && (
+        <p data-search-result className="text-center text-cosmic-300 italic scroll-mt-30">
+          No dialogue options found that match your search
+        </p>
+      )}
     </>
   );
 }
