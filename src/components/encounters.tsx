@@ -11,7 +11,7 @@ export function Encounters() {
           key={enc.name}
           shine
           active={selectedEncounter?.name === enc.name}
-          className="w-24 h-24 rounded-xl"
+          className="w-16 h-16 lg:w-20 lg:h-20 rounded-xl"
           onClick={() => setSelectedEncounter((prev) => (prev?.name === enc.name ? null : enc))}
         >
           <img src={enc.icon} alt={enc.name} />

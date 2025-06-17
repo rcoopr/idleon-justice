@@ -4,6 +4,7 @@
 
 @theme {
   --breakpoint-md: 52rem;
+  --breakpoint-lg: 68rem;
 
   /* Primary cosmic purple theme */
   --color-cosmic-50: #f5f3ff;
