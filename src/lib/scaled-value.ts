@@ -16,5 +16,5 @@ export function scaled(value: ScalableValue, base: number, showType?: boolean): 
     return `${sign}${Math.abs(number)}⨯`;
   }
 
-  return flat + mult * base;
+  return Math.round(flat + mult * base);
 }

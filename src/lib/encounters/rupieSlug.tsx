@@ -8,6 +8,7 @@ export const rupieSlug: Encounter = {
   icon: '/encounters/Justice_npc14.png',
   interactions: [
     {
+      //#84 - 67/226 -> 135/181 on approve = 4x/-2.5?
       id: 1,
       text: "Hai!!! You're really popular, can I have some of your popularness? I give coins in return of how popular you make me!",
       approve: {

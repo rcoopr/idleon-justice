@@ -7,6 +7,7 @@ import { AnchorLink } from './ui/anchor-link';
 import { slugs } from '../lib/encounters/slugs';
 import type { JSX } from 'react';
 import { Approve, Reject } from './ui/icons/decision';
+import { Coin } from './ui/icons/resource';
 
 export function DialogueOptions() {
   const { filteredEncounters, selectedEncounter } = useSearchStore();
@@ -89,11 +90,11 @@ function EncounterInteraction({
             : interaction.text}
         </HighlightedText>
       </span>
-      <div className="px-4 py-2 grid place-content-center h-full border-l border-cosmic-200/10">
-        <OutcomeSummary outcome={interaction.approve} />
+      <div className="h-full border-l border-cosmic-200/10">
+        <OutcomeSummary outcome={interaction.approve} harbinger={encounter.slug === 'harbinger'} />
       </div>
       <div className="px-4 py-2 grid place-content-center h-full border-l border-cosmic-200/10">
-        <OutcomeSummary outcome={interaction.reject} />
+        <OutcomeSummary outcome={interaction.reject} harbinger={encounter.slug === 'harbinger'} />
       </div>
       <Advice advice={interaction.advice} notes={interaction.notes} />
     </li>
@@ -114,7 +115,8 @@ const adviceSettings = {
         <span>
           Approve this if you can afford{' '}
           <AnchorLink to={slugs.fizarreDrink}>Fizarre's Drinks</AnchorLink> and{' '}
-          <AnchorLink to={`${slugs.grumblo}-1`}>Grumblo</AnchorLink>.
+          <AnchorLink to={`${slugs.grumblo}-1`}>Grumblo</AnchorLink> (6
+          <Coin />)
         </span>
       ),
     },
