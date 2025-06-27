@@ -1,3 +1,4 @@
+import { ScaledValue } from '../../components/scaled-value';
 import { AnchorLink } from '../../components/ui/anchor-link';
 import { Coin, Dismissal, Pop } from '../../components/ui/icons/resource';
 import { slugs } from './slugs';
@@ -90,8 +91,9 @@ export const poppy: Encounter = {
         notes: (
           <span>
             The <Coin /> gained can pay for the{' '}
-            <AnchorLink to={slugs.harbinger}>Harbinger</AnchorLink>, so you can avoid the <Pop />{' '}
-            loss
+            <AnchorLink to={slugs.harbinger}>Harbinger</AnchorLink> (<ScaledValue value={3} />-
+            <ScaledValue value={8} />
+            <Coin />) so you can avoid the <Pop /> loss
           </span>
         ),
       },
