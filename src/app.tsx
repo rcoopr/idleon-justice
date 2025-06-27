@@ -1,6 +1,6 @@
 import './App.css';
 
-import { Analytics } from '@vercel/analytics/next';
+import { Analytics } from '@vercel/analytics/react';
 import { ToTop } from './components/to-top';
 import { Header } from './components/header';
 import { SearchInput } from './components/search-input';
