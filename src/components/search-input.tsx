@@ -59,8 +59,6 @@ export function SearchInput() {
     scrollToResults();
     if (caseNumber && (caseNumber + 1) % 5 === 0) {
       setSelectedEncounter(encounterMap.harbinger);
-    } else {
-      setSelectedEncounter(null);
     }
     incrementCase();
     setSearch('');
@@ -72,10 +70,10 @@ export function SearchInput() {
     <div
       className={twJoin(
         'w-screen flex justify-center sticky top-0 z-100 -mt-6',
-        scrollY > 152 && 'bg-nebula-900/20 backdrop-blur-xl border-b border-nebula-900'
+        scrollY > 184 && 'bg-nebula-900/20 backdrop-blur-xl border-b border-nebula-900'
       )}
     >
-      <div className="w-full relative sm:w-sm py-3 px-6 flex flex-col items-center gap-3 z-100">
+      <div className="flex-1 max-w-md relative sm:w-sm py-3 px-6 flex flex-col items-center gap-3 z-100">
         <label htmlFor="search" className="sr-only">
           Search dialogue options
         </label>
