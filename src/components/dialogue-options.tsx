@@ -25,12 +25,12 @@ export function DialogueOptions() {
         return (
           <ul key={encounter.slug} data-search-result className="space-y-3 w-full scroll-mt-30">
             <div className="grid grid-cols-[auto_79px_79px] items-end">
-              <div className="flex items-end px-2 gap-4">
+              <div id={encounter.slug} className="flex items-end px-2 gap-4 scroll-mt-[120px]">
                 <img src={encounter.icon} alt={encounter.name} />
                 <div className="flex flex-col">
                   <h3
                     id={encounter.slug}
-                    className="font-bold transition-colors duration-300 target:text-cosmic-400 scroll-mt-[116px]"
+                    className="font-bold transition-colors duration-300 target:text-cosmic-400"
                   >
                     {encounter.name}
                   </h3>
