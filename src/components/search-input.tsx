@@ -19,12 +19,12 @@ export function SearchInput() {
   }, [search]);
 
   const scrollToResults = () => {
-    const firstEncounter = document.querySelector<HTMLUListElement>('[data-search-result]');
-    if (!firstEncounter) {
-      window.scrollTo({ top: 184, behavior: 'smooth' });
-      return;
-    }
-    firstEncounter.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // const firstEncounter = document.querySelector<HTMLUListElement>('[data-search-result]');
+    // if (!firstEncounter) {
+    window.scrollTo({ top: 184, behavior: 'smooth' });
+    // return;
+    // }
+    // firstEncounter.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   useEffect(() => {
