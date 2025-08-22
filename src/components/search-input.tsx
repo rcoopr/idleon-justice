@@ -23,7 +23,7 @@ export function SearchInput() {
   const scrollToResults = () => {
     // const firstEncounter = document.querySelector<HTMLUListElement>('[data-search-result]');
     // if (!firstEncounter) {
-    window.scrollTo({ top: 184, behavior: 'smooth' });
+    window.scrollTo({ top: 292, behavior: 'smooth' });
     // return;
     // }
     // firstEncounter.scrollIntoView({ behavior: 'smooth', block: 'start' });

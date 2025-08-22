@@ -17,8 +17,8 @@ export function App() {
         <Header />
         <Attribution />
         <SearchInput />
-        <Encounters />
         <GeneralStrategy />
+        <Encounters />
         <DialogueOptions />
         <div className="h-screen" aria-hidden />
       </div>
