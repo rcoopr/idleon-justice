@@ -72,7 +72,7 @@ export function SearchInput() {
     <div
       className={twJoin(
         'w-screen flex justify-center sticky top-0 z-100 -mt-6',
-        scrollY > 152 && 'bg-nebula-900/20 backdrop-blur-xl border-b-2 border-nebula-900'
+        scrollY > 152 && 'bg-nebula-900/20 backdrop-blur-xl border-b border-nebula-900'
       )}
     >
       <div className="w-full relative sm:w-sm py-3 px-6 flex flex-col items-center gap-3 z-100">
