@@ -30,6 +30,7 @@ export const HighlightedText = ({
   ) {
     const data = children as HighlightedTextData;
     const elements: (string | JSX.Element)[] = [];
+    console.log({ elements });
 
     for (let i = 0; i < data.parts.length; i++) {
       // Add text part if it exists and is not empty

@@ -6,10 +6,12 @@ import { Button } from './ui/button';
 import { useCaseStore } from '../lib/hooks/use-case-store';
 import { useScrollPosition } from '../lib/hooks/use-scroll-position';
 import { twJoin } from 'tailwind-merge';
+import { encounterMap } from '../lib/encounters';
 
 export function SearchInput() {
   const ref = useRef<HTMLInputElement>(null);
-  const { search, setSearch, clearSearch, clearSelectedEncounter } = useSearchStore();
+  const { search, setSearch, clearSearch, clearSelectedEncounter, setSelectedEncounter } =
+    useSearchStore();
   const { caseNumber, setCase, incrementCase } = useCaseStore();
 
   useLayoutEffect(() => {
@@ -55,6 +57,11 @@ export function SearchInput() {
 
   const nextCaseAction = () => {
     scrollToResults();
+    if (caseNumber && (caseNumber + 1) % 5 === 0) {
+      setSelectedEncounter(encounterMap.harbinger);
+    } else {
+      setSelectedEncounter(null);
+    }
     incrementCase();
     setSearch('');
   };

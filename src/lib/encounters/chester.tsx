@@ -86,7 +86,6 @@ export const retirementChester: Encounter = {
         chest: 1,
         coin: -2,
         popularity: -1,
-        special: "Takes resources even if you don't have them",
       },
       reject: {},
       related: true,

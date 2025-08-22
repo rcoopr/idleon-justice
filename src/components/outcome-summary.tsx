@@ -6,11 +6,54 @@ import { MentalHealth, Coin, Pop, Dismissal, Chest } from './ui/icons/resource';
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
 
 export function OutcomeSummary({ outcome, harbinger }: { outcome: Outcome; harbinger?: boolean }) {
-  if (outcome.special)
-    return (
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <div className="size-full px-4 py-2 grid place-content-center">
+  const { caseNumber } = useCaseStore();
+  const { base, harbinger: harbingerMult } = useCaseMult();
+  const coinMult = harbinger ? harbingerMult : base;
+
+  return (
+    <OptionalTooltip
+      tooltip={!!outcome.special}
+      content={
+        <TooltipContent side="left" sideOffset={-15} className="special">
+          <div className="col-span-2 pt-0.5">{outcome.special}</div>
+        </TooltipContent>
+      }
+    >
+      <div className="px-4 py-2 h-full grid place-content-center gap-1">
+        <div className="grid grid-cols-[auto_max-content] gap-x-0.5 items-center justify-items-center">
+          {outcome.mentalHealth ? (
+            <>
+              <ValueLabel value={outcome.mentalHealth} />
+              <MentalHealth />
+            </>
+          ) : null}
+          {outcome.coin ? (
+            <>
+              <ValueLabel value={scaled(outcome.coin, coinMult, caseNumber === null)} />
+              <Coin />
+            </>
+          ) : null}
+          {outcome.popularity ? (
+            <>
+              <ValueLabel value={scaled(outcome.popularity, base, caseNumber === null)} />
+              <Pop />
+            </>
+          ) : null}
+          {outcome.dismissal ? (
+            <>
+              <ValueLabel value={outcome.dismissal} />
+              <Dismissal />
+            </>
+          ) : null}
+          {outcome.chest ? (
+            <>
+              <ValueLabel value={outcome.chest} />
+              <Chest />
+            </>
+          ) : null}
+        </div>
+        {outcome.special && (
+          <div className="place-self-center">
             <img
               width={25}
               height={25}
@@ -19,63 +62,28 @@ export function OutcomeSummary({ outcome, harbinger }: { outcome: Outcome; harbi
               className="rupie"
             />
           </div>
-        </TooltipTrigger>
-        <TooltipContent side="bottom" sideOffset={-20} className="special">
-          <div className="col-span-2 pt-0.5">{outcome.special}</div>
-        </TooltipContent>
-      </Tooltip>
-    );
-
-  return <OutcomeSummaryResources outcome={outcome} harbinger={harbinger} />;
+        )}
+      </div>
+    </OptionalTooltip>
+  );
 }
 
-export function OutcomeSummaryResources({
-  outcome,
-  harbinger,
+function OptionalTooltip({
+  children,
+  content,
+  tooltip,
 }: {
-  outcome: Outcome;
-  harbinger?: boolean;
+  children: React.ReactNode;
+  content: React.ReactNode;
+  tooltip: boolean;
 }) {
-  const { caseNumber } = useCaseStore();
-  const { base, harbinger: harbingerMult } = useCaseMult();
-  const coinMult = harbinger ? harbingerMult : base;
+  if (!tooltip) return children;
 
   return (
-    <div className="px-4 py-2 h-full grid place-content-center">
-      <div className="grid grid-cols-[auto_max-content] gap-x-0.5 items-center justify-items-center">
-        {outcome.mentalHealth ? (
-          <>
-            <ValueLabel value={outcome.mentalHealth} />
-            <MentalHealth />
-          </>
-        ) : null}
-        {outcome.coin ? (
-          <>
-            <ValueLabel value={scaled(outcome.coin, coinMult, caseNumber === null)} />
-            <Coin />
-          </>
-        ) : null}
-        {outcome.popularity ? (
-          <>
-            <ValueLabel value={scaled(outcome.popularity, base, caseNumber === null)} />
-            <Pop />
-          </>
-        ) : null}
-        {outcome.dismissal ? (
-          <>
-            <ValueLabel value={outcome.dismissal} />
-            <Dismissal />
-          </>
-        ) : null}
-        {outcome.chest ? (
-          <>
-            <ValueLabel value={outcome.chest} />
-            <Chest />
-          </>
-        ) : null}
-        {outcome.special && <div className="col-span-2 pt-0.5">{outcome.special}</div>}
-      </div>
-    </div>
+    <Tooltip>
+      <TooltipTrigger asChild>{children}</TooltipTrigger>
+      {content}
+    </Tooltip>
   );
 }
 

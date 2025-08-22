@@ -30,7 +30,7 @@ export function DialogueOptions() {
                 <div className="flex flex-col">
                   <h3
                     id={encounter.slug}
-                    className="font-bold transition-colors duration-300 target:text-cosmic-400 scroll-m-8"
+                    className="font-bold transition-colors duration-300 target:text-cosmic-400 scroll-mt-[116px]"
                   >
                     {encounter.name}
                   </h3>
@@ -79,7 +79,7 @@ function EncounterInteraction({
         'bg-cosmic-200/3 border-cosmic-200/10 backdrop-blur-lg transition-colors duration-300',
         'target:bg-cosmic-500/30 target:border-cosmic-400/50',
         '[&:target~.related]:bg-cosmic-500/30 [&:target~.related]:border-cosmic-400/50',
-        index === 0 ? 'scroll-m-14' : 'scroll-m-4',
+        index === 0 ? 'scroll-mt-[166px]' : 'scroll-mt-[116px]',
         interaction.related && 'related'
       )}
     >
